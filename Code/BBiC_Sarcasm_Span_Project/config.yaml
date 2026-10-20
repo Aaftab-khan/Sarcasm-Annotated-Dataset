@@ -1,0 +1,33 @@
+# BBiC configuration for the confirmed batch-size-32 run.
+model:
+  base_model: bert-base-uncased
+  max_length: 128
+  bilstm_hidden_size: 256
+  dropout: 0.30
+  labels: [O, B-SARC, I-SARC]
+
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.00002
+  weight_decay: 0.01
+  warmup_ratio: 0.10       # Operational default; paper says linear warmup/decay but gives no ratio.
+  validation_fraction: 0.10 # Operational split for validation-loss early stopping; paper gives no fraction.
+  early_stopping_patience: 5 # Operational default; paper gives no patience value.
+  gradient_clip_norm: 1.0   # Stability setting; not reported in the paper.
+  seed: 42
+  num_workers: 0
+  pin_memory: true
+
+data:
+  train_file: data/processed/TrainAnnotatedSpansBIO.csv
+  test_file: data/processed/TestAnnotatedSpansBIO.csv
+  text_column: tweet
+  label_column: sarcastic
+  processed_text_column: Preprocessed Tweet
+  span_column: Sarcastic Span
+  char_span_column: Character Span
+  bio_column: BIO Label Sequence
+
+output:
+  root: outputs

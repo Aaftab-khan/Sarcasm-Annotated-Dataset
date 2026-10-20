@@ -1,0 +1,10 @@
+torch>=2.2,<3.0
+transformers>=4.44,<5.0
+tokenizers>=0.19
+numpy>=1.26
+pandas>=2.0
+scikit-learn>=1.4
+matplotlib>=3.8
+PyYAML>=6.0
+openpyxl>=3.1
+safetensors>=0.4
