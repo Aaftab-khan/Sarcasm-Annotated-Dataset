@@ -89,7 +89,7 @@ The CRF disallows `I-SARC` at sequence start and disallows `I-SARC` after `O`. T
 
 
 
-| Parameter | Project setting 
+| Parameter | Project setting |
 |---|---:|---|
 | Base encoder | `bert-base-uncased` |
 | Maximum length | 128 |
@@ -102,7 +102,7 @@ The CRF disallows `I-SARC` at sequence start and disallows `I-SARC` after `O`. T
 | Batch size | **32** |
 | Maximum epochs | 50 | 
 | Scheduler | Linear warmup then linear decay | Schedule type is specified; `warmup_ratio=0.10` is an operational default |
-| Validation fraction | 0.10 from the official training split | Operational default for holding out validation data from training only |
+| Validation fraction | 0.10 from the official training split |
 | Early-stop patience | 5 epochs | Operational default for validation-loss early stopping |
 | Seed | 42 |
 | Gradient clipping | 1.0 |
