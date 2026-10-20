@@ -83,7 +83,6 @@ Viterbi decoding
 BIO sequence → character-level predicted spans
 ```
 
-The CRF disallows `I-SARC` at sequence start and disallows `I-SARC` after `O`. Token metrics ignore special tokens and padding. Predicted character spans use the fast tokenizer's offsets, not whitespace-based token guessing.
 
 ## Important parameter choices
 
