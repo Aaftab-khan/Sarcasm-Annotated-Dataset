@@ -89,25 +89,24 @@ The CRF disallows `I-SARC` at sequence start and disallows `I-SARC` after `O`. T
 
 
 
-| Parameter | Project setting | Status |
+| Parameter | Project setting 
 |---|---:|---|
-| Base encoder | `bert-base-uncased` | Explicit implementation choice. |
-| Maximum length | 128 | Reported in paper |
-| BERT hidden size | 768 | BERT-base representation size reported in paper |
-| BiLSTM hidden units | 256 per direction | Reported hidden-unit setting; output size is 512 after concatenation |
-| Dropout | 0.30 | Reported in paper |
-| Optimizer | AdamW | Reported in paper |
-| Learning rate | `2e-5` | Reported in paper |
-| Weight decay | 0.01 | Reported in paper |
-| Batch size | **32** | Confirmed configuration for this project. |
-| Maximum epochs | 50 | Reported in paper |
+| Base encoder | `bert-base-uncased` |
+| Maximum length | 128 |
+| BERT hidden size | 768 |
+| BiLSTM hidden units | 256 per direction | 
+| Dropout | 0.30 | 
+| Optimizer | AdamW | 
+| Learning rate | `2e-5` 
+| Weight decay | 0.01 | 
+| Batch size | **32** |
+| Maximum epochs | 50 | 
 | Scheduler | Linear warmup then linear decay | Schedule type is specified; `warmup_ratio=0.10` is an operational default |
 | Validation fraction | 0.10 from the official training split | Operational default for holding out validation data from training only |
 | Early-stop patience | 5 epochs | Operational default for validation-loss early stopping |
-| Seed | 42 | Explicit reproducibility setting; not reported in the paper |
-| Gradient clipping | 1.0 | Explicit stability setting; not reported in the paper |
-
-The warmup ratio (`0.10`), validation fraction (`0.10`), early-stopping patience (`5`), seed (`42`), and gradient-clipping norm (`1.0`) are explicit operational defaults chosen to make the runs repeatable. 
+| Seed | 42 |
+| Gradient clipping | 1.0 |
+The warmup ratio (`0.10`), validation fraction (`0.10`), early-stopping patience (`5`), seed (`42`), and gradient-clipping norm (`1.0`)  
 
 
 
