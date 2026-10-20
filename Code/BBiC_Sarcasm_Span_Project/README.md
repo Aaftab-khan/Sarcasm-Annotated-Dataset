@@ -239,20 +239,4 @@ python predict.py --checkpoint outputs/bbic/best_checkpoint.pt --text "Thanks fo
 
 The output contains the preprocessed text, predicted BIO sequence, and character offsets/text of predicted sarcasm spans. Predictions are model outputs, not ground-truth annotations.
 
-## 6. QA tests
 
-Run the offline/unit/data-integrity tests:
-
-```bash
-python -m unittest discover -s tests -v
-python -m compileall -q .
-```
-
-Tests cover CRF likelihood/backpropagation, constrained Viterbi paths, padding masks, tokenizer-length mismatch failures, truncation and `[SEP]` retention, all-`O` labels for non-sarcastic rows, span metric definitions, expected split counts, exact preservation of all original annotated rows, non-sarcastic source order, and blank annotation fields for negatives.
-
-## Experimental reproducibility caveats
-
-1. No performance values are promised by code review alone. The reported scores must be reproduced on the actual model run.
-2. This environment did not have Hugging Face Transformers installed and could not reach package/model downloads. Unit tests and structural dataset QA can be run here, but the full pretrained BERT alignment check and end-to-end model training/evaluation must be executed in your Python environment with Transformers and the model weights installed.
-3. The choice `bert-base-uncased`, warmup ratio, validation fraction, early-stop patience, seed, and gradient-clipping norm are explicitly configured defaults where the available experimental description does not specify exact values. Keep these settings consistent with the actual run configuration.
-4. Batch size is set to **32**, as confirmed for this project. The saved run configuration records the setting used for each experiment.
